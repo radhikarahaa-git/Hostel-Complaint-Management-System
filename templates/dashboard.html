@@ -1,0 +1,40 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="welcome">
+    <h1>Hello, {{ session.get('name') }}!</h1>
+    <p>Welcome to your HostelCare dashboard.</p>
+</div>
+
+<div class="stats">
+
+    <div class="stat-card">
+        <h3>Total Complaints</h3>
+        <h1>{{ total }}</h1>
+    </div>
+
+    <div class="stat-card">
+        <h3>Pending Complaints</h3>
+        <h1>{{ pending }}</h1>
+    </div>
+
+    <div class="stat-card">
+        <h3>Resolved Complaints</h3>
+        <h1>{{ resolved }}</h1>
+    </div>
+
+</div>
+
+<div class="actions">
+    <a href="{{ url_for('submit_complaint') }}" class="action-btn">
+        + Submit New Complaint
+    </a>
+
+    <a href="{{ url_for('my_complaints') }}" class="action-btn secondary">
+        View My Complaints
+    </a>
+</div>
+
+{% endblock %}

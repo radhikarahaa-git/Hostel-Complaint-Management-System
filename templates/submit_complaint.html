@@ -1,0 +1,49 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-card wide">
+
+    <h1>Submit a Complaint</h1>
+    <p>Tell us about the problem you are facing.</p>
+
+    <form method="POST">
+
+        <label>Student Name</label>
+        <input type="text" value="{{ session.get('name') }}" disabled>
+
+        <label>Room Number</label>
+        <p class="small-note">Your registered room number will be used.</p>
+
+        <label>Complaint Category</label>
+        <select name="category" required>
+            <option value="">Select Category</option>
+            <option value="Electricity">Electricity</option>
+            <option value="Water">Water</option>
+            <option value="Wi-Fi">Wi-Fi</option>
+            <option value="Cleaning">Cleaning</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label>Urgency</label>
+        <select name="urgency" required>
+            <option value="">Select Urgency</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+
+        <label>Complaint Description</label>
+        <textarea name="description"
+                  rows="5"
+                  placeholder="Describe your problem..."
+                  required></textarea>
+
+        <button type="submit">Submit Complaint</button>
+
+    </form>
+
+</div>
+
+{% endblock %}

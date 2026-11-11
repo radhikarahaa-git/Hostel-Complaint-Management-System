@@ -1,0 +1,91 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Administrator Dashboard</h1>
+<p>Manage and monitor all hostel complaints.</p>
+
+{% if complaints %}
+
+<div class="table-wrapper">
+<table>
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Student</th>
+            <th>Room</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Update</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {% for c in complaints %}
+
+        <tr>
+            <td>#{{ c.id }}</td>
+            <td>{{ c.name }}</td>
+            <td>{{ c.room }}</td>
+            <td>{{ c.category }}</td>
+            <td>{{ c.description }}</td>
+
+            <td>
+                <span class="priority {{ c.priority|lower }}">
+                    {{ c.priority }}
+                </span>
+            </td>
+
+            <td>{{ c.status }}</td>
+
+            <td>
+                <form method="POST"
+                      action="{{ url_for('update_status', complaint_id=c.id) }}">
+
+                    <select name="status">
+                        <option value="Pending"
+                            {% if c.status == 'Pending' %}selected{% endif %}>
+                            Pending
+                        </option>
+
+                        <option value="In Progress"
+                            {% if c.status == 'In Progress' %}selected{% endif %}>
+                            In Progress
+                        </option>
+
+                        <option value="Resolved"
+                            {% if c.status == 'Resolved' %}selected{% endif %}>
+                            Resolved
+                        </option>
+                    </select>
+
+                    <button type="submit" class="small-btn">
+                        Update
+                    </button>
+
+                </form>
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+</div>
+
+{% else %}
+
+<div class="empty">
+    <h3>No complaints have been submitted.</h3>
+</div>
+
+{% endif %}
+
+{% endblock %}

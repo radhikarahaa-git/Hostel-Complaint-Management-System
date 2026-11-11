@@ -1,0 +1,60 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>My Complaints</h1>
+<p>Track the progress of your submitted complaints.</p>
+
+{% if complaints %}
+
+<div class="table-wrapper">
+<table>
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Urgency</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for c in complaints %}
+        <tr>
+            <td>#{{ c.id }}</td>
+            <td>{{ c.category }}</td>
+            <td>{{ c.description }}</td>
+            <td>{{ c.urgency }}</td>
+            <td>
+                <span class="priority {{ c.priority|lower }}">
+                    {{ c.priority }}
+                </span>
+            </td>
+            <td>
+                <span class="status {{ c.status|lower|replace(' ', '-') }}">
+                    {{ c.status }}
+                </span>
+            </td>
+            <td>{{ c.created_at }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+</div>
+
+{% else %}
+
+<div class="empty">
+    <h3>No complaints submitted yet.</h3>
+    <a href="{{ url_for('submit_complaint') }}">Submit your first complaint</a>
+</div>
+
+{% endif %}
+
+{% endblock %}
