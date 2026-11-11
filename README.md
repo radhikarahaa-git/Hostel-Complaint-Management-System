@@ -70,19 +70,19 @@ Make sure GCC is installed and available in PATH.
 
 python app.py
 
-### Step 6: Open in Browser
+###Step 6: Open in Browser
 
 https://hostel-complaint-management-system-vuu2.onrender.com
 
 The SQLite database will be created automatically.
 
-## Default Administrator Login
+a) Default Administrator Login
 
 Username: admin
 
 Password: admin123
 
-## Database
+b) Database
 
 The application uses SQLite to store:
 - Student details
@@ -92,14 +92,14 @@ The application uses SQLite to store:
 - Complaint priorities
 - Complaint statuses
 
-## C Module
+c) C Module
 
 The C program calculates complaint priority
 based on complaint category and urgency.
 
 It is compiled and executed by the Python backend.
 
-## Future Improvements
+d) Future Improvements
 
 - Email notifications
 - Complaint deletion
@@ -107,6 +107,6 @@ It is compiled and executed by the Python backend.
 - Admin analytics
 - Password reset functionality
 
-## Author
+e) Author
 
-Your Name
+Radhika Raha
