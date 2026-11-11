@@ -72,7 +72,7 @@ python app.py
 
 ### Step 6: Open in Browser
 
-http://127.0.0.1:5000
+https://hostel-complaint-management-system-vuu2.onrender.com
 
 The SQLite database will be created automatically.
 
