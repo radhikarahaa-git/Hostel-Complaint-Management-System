@@ -70,7 +70,7 @@ Make sure GCC is installed and available in PATH.
 
 python app.py
 
-###Step 6: Open in Browser
+### Step 6: Open in Browser
 
 https://hostel-complaint-management-system-vuu2.onrender.com
 
